@@ -1,0 +1,264 @@
+/* --- ESTILOS GENERALES --- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e9edf2;
+    color: #333;
+}
+
+/* --- LAYOUT Y ESTRUCTURA --- */
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding-bottom: 50px;
+}
+
+/* --- HEADER (Basado en tu diseño) --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #2f80c1;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* --- NAVEGACIÓN (Nueva para manejo de estados) --- */
+.menu-navegacion {
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 1px solid #dce3eb;
+}
+
+    .menu-navegacion button {
+        background: transparent;
+        color: #2f80c1;
+        border: 2px solid #2f80c1;
+        padding: 10px 25px;
+        font-weight: 600;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .menu-navegacion button:hover {
+            background: #f0f7ff;
+            transform: translateY(-2px);
+        }
+
+        .menu-navegacion button.active {
+            background: #2f80c1;
+            color: white;
+            box-shadow: 0 4px 10px rgba(47, 128, 193, 0.3);
+        }
+
+/* --- CONTENIDO Y PÁGINAS --- */
+.contenido {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.subtitulo {
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+
+/* --- CARDS (Panel de Inicio) --- */
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    width: 260px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card h2 {
+        margin-bottom: 10px;
+        color: #2f80c1;
+    }
+
+    .card p {
+        color: #555;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .card button {
+        margin-top: 15px;
+        background: #2f80c1;
+        border: none;
+        padding: 10px 20px;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+/* --- FORMULARIOS --- */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 350px;
+    margin: 20px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+    .formulario input {
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        font-size: 14px;
+    }
+
+        .formulario input:focus {
+            outline: none;
+            border-color: #2f80c1;
+            box-shadow: 0 0 0 3px rgba(47, 128, 193, 0.1);
+        }
+
+    .formulario button {
+        background: #27ae60; /* Verde para acciones de guardado */
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+        .formulario button:hover {
+            background: #219150;
+        }
+
+/* --- TABLAS (Pacientes) --- */
+.tabla-contenedor {
+    margin: 30px auto;
+    max-width: 900px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .tabla th, .tabla td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    .tabla th {
+        background: #2f80c1;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+
+    .tabla tr:hover {
+        background-color: #f8f9fa;
+    }
+
+/* --- INFO SECCIÓN --- */
+.info {
+    background: white;
+    margin: 50px auto;
+    padding: 30px;
+    max-width: 700px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    line-height: 1.6;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #2f80c1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* --- ANIMACIONES --- */
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Botones de acción en la tabla */
+.btn-edit, .btn-delete, .btn-save, .btn-cancel {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 5px;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+
+    .btn-edit:hover, .btn-save:hover {
+        transform: scale(1.2);
+        color: #2f80c1;
+    }
+
+    .btn-delete:hover, .btn-cancel:hover {
+        transform: scale(1.2);
+        color: #e74c3c;
+    }
+
+/* Input pequeño para cuando estamos editando en la tabla */
+.tabla input {
+    width: 90%;
+    padding: 5px;
+    border: 1px solid #2f80c1;
+    border-radius: 4px;
+}
