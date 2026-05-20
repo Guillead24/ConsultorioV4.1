@@ -1,223 +1,95 @@
-🩺 MedSystem – Sistema de Gestión de Consultas Médicas
-📖 Descripción
 
-MedSystem es una aplicación web desarrollada con React que permite simular un sistema básico de gestión médica. El sistema ofrece una interfaz sencilla donde se pueden visualizar pacientes, registrar citas médicas y navegar entre diferentes secciones del sistema.
 
-El proyecto fue creado utilizando Vite, una herramienta moderna para desarrollar aplicaciones frontend de manera rápida y eficiente.
+# **MedSystem - Sistema de Gestión de Consultas Médicas**
 
-La aplicación está estructurada utilizando componentes reutilizables, lo que permite mantener el código organizado y escalable.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET_8-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
+![Entity Framework](https://img.shields.io/badge/EF%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
 
-🎯 Objetivo del Proyecto
+---
 
-El objetivo principal de este proyecto es desarrollar una aplicación web que simule un sistema básico para la administración de consultas médicas, permitiendo gestionar información relacionada con pacientes y citas médicas.
+## **Descripción del Proyecto**
+**MedSystem** es una plataforma web integral diseñada para la administración de consultorios médicos. El sistema permite gestionar el flujo completo de atención, desde el registro inicial del paciente hasta la programación y seguimiento de citas médicas.
 
-También busca aplicar los conceptos fundamentales del desarrollo con React, como:
+Esta versión corresponde al avance de la **Unidad 3**, donde se ha migrado toda la lógica estática a una **arquitectura basada en estados dinámicos** y componentes reutilizables bajo el estándar de **Single Page Application (SPA)**.
 
-Creación de componentes
+---
 
-Organización modular del código
+## **Funcionalidades Principales**
 
-Uso de TypeScript
+**Panel de Control (Dashboard)**: Interfaz de bienvenida con acceso directo a los módulos críticos mediante un sistema de tarjetas (Cards).
 
-Aplicación de estilos con CSS
+**Gestión Dinámica de Pacientes**: Tabla interactiva que muestra información en tiempo real de los pacientes registrados.
 
-Separación de páginas dentro de la aplicación
+**Módulo de Citas**: Formulario inteligente que permite capturar datos de nuevas consultas y actualizar el estado global de la aplicación instantáneamente
 
-🧰 Tecnologías Utilizadas
+**Navegación Sin Recarga**: Sistema de rutas internas que mejora la experiencia de usuario (UX) al evitar parpadeos en el navegador.
 
-Este proyecto utiliza las siguientes tecnologías:
+---
 
-React – Biblioteca para construir interfaces de usuario.
+## **Tecnologías y Herramientas**
 
-Vite – Herramienta para crear proyectos React modernos.
+| Tecnología | Propósito |
+| :--- | :--- |
+| **React 18** | Biblioteca base para la creación de componentes funcionales. |
+| **TypeScript** | Aseguramiento de calidad mediante tipado estático de datos. |
+| **ASP.NET Core 8** | Infraestructura de servidor y servicios API REST. |
+| **SQL Server** | Sistema de gestión de base de datos relacional para persistencia. |
+| **EF Core 8** | ORM para el mapeo de objetos y acceso a datos (Code-First). |
+| **CSS3 Custom Properties** | Diseño institucional basado en una paleta de colores profesional. |
+| **Vite** | Entorno de desarrollo de alta velocidad y empaquetado. |
 
-TypeScript – Lenguaje que agrega tipado estático a JavaScript.
+---
 
-Microsoft Visual Studio – Entorno de desarrollo utilizado para crear el proyecto.
+## **Arquitectura del Software**
 
-CSS3 – Utilizado para el diseño y estilo de la interfaz.
+El código se organiza siguiendo el principio de **Separación de Responsabilidades**:
 
-📂 Estructura del Proyecto
+```text
+src/
+├── components/
+│   └── Shared/         # Componentes transversales (Layout, Navbar)
+├── Pages/              # Vistas de negocio (Inicio, Pacientes, Citas)
+├── App.tsx             # Gestión del Estado Global y Lógica de Negocio
+├── main.tsx            # Punto de montaje de la aplicación
+└── App.css             # Capa de estilos y animaciones (Transitions)
+```
 
-El proyecto está organizado de la siguiente manera:
+---
 
-src
-│
-├── assets
-│
-├── components
-│   └── Header.tsx
-│
-├── Pages
-│   ├── Inicio.tsx
-│   ├── Pacientes.tsx
-│   └── Citas.tsx
-│
-├── App.tsx
-├── App.css
-├── index.css
-└── main.tsx
-Explicación de carpetas
+## **Implementación Fullstack y Persistencia**
 
-components
-Contiene componentes reutilizables de la aplicación, como el encabezado del sistema.
+Se ha evolucionado el sistema hacia una arquitectura de servicios integrados, logrando la conexión efectiva entre el cliente y el servidor:
 
-Pages
-Contiene las diferentes páginas de la aplicación:
+*   **Integración de Endpoints**: Se estructuró el Backend mediante el patrón de controladores, implementando endpoints RESTful para operaciones CRUD completas sobre el modelo de Pacientes utilizando `ControllerBase`.
+*   **Persistencia de Datos**: Implementación de **Entity Framework Core 8** bajo el enfoque **Code-First**. La sincronización con la base de datos SQL Server se gestiona mediante migraciones automáticas para garantizar la integridad de la información.
+*   **Comunicación Eficiente**: El Frontend (React) se comunica con el Backend (ASP.NET Core) mediante peticiones asíncronas, permitiendo el registro y consulta de datos en tiempo real.
+*   **Gestión de Errores**: Sistema robusto de manejo de respuestas HTTP, devolviendo códigos de estado específicos (como 404 Not Found o 400 Bad Request) para una depuración y experiencia de usuario optimizada.
 
-Inicio
+---
 
-Pacientes
+## **Guía de Ejecución Local**
 
-Citas
+1. **Instalar dependencias:**
+```bash
+-npm install
+-npm run dev
+```
 
-assets
-Carpeta donde se almacenan recursos como imágenes e íconos.
+---
 
-⚙️ Instalación del Proyecto
+## **Próximos Objetivos**
+Pasarlo a un servidor para convertirla en una pagina web la cual no dependa de nuestros ordenadores
 
-Para ejecutar este proyecto localmente, sigue estos pasos:
+---
 
-1. Clonar el repositorio
-git clone https://github.com/usuario/medsystem.git
-2. Entrar a la carpeta del proyecto
-cd medsystem
-3. Instalar dependencias
-npm install
-4. Ejecutar la aplicación
-npm run dev
+## **Información Académica**
 
-Después de ejecutar el comando, abre el navegador en:
-
-http://localhost:5173
-🧩 Componentes del Sistema
-Header
-
-El componente Header representa la barra superior de navegación del sistema.
-
-Incluye:
-
-Logo del sistema
-
-Menú de navegación
-
-Acceso a las principales secciones
-
-Este componente se reutiliza en todas las páginas del sistema.
-
-🏠 Página de Inicio
-
-La página Inicio funciona como el panel principal del sistema.
-
-Incluye:
-
-Título del sistema
-
-Descripción general
-
-Tarjetas de acceso rápido
-
-Las tarjetas permiten acceder a las principales secciones del sistema:
-
-Pacientes
-
-Citas
-
-Estadísticas
-
-👨‍⚕️ Página de Pacientes
-
-La página Pacientes muestra una tabla con información básica de pacientes registrados en el sistema.
-
-La tabla incluye:
-
-Nombre del paciente
-
-Edad
-
-Teléfono
-
-Este módulo puede ampliarse para incluir funcionalidades como:
-
-Registro de nuevos pacientes
-
-Edición de información
-
-Eliminación de registros
-
-Historial médico
-
-📅 Página de Citas
-
-La página Citas permite registrar consultas médicas mediante un formulario.
-
-El formulario incluye los siguientes campos:
-
-Nombre del paciente
-
-Fecha de la cita
-
-Hora de la consulta
-
-Este módulo puede ampliarse para incluir:
-
-Calendario de citas
-
-Edición de citas
-
-Cancelación de consultas
-
-🎨 Diseño de la Interfaz
-
-La interfaz del sistema utiliza CSS para crear un diseño limpio y moderno.
-
-Características principales:
-
-Barra de navegación superior
-
-Tarjetas informativas
-
-Botones interactivos
-
-Formularios simples
-
-Diseño centrado y ordenado
-
-Se utilizan propiedades CSS como:
-
-box-shadow
-border-radius
-flexbox
-padding
-
-para mejorar la apariencia visual del sistema.
-
-🚀 Mejoras Futuras
-
-Este proyecto puede mejorarse agregando funcionalidades adicionales como:
-
-Navegación con React Router
-
-Conexión con una base de datos
-
-API para almacenar pacientes
-
-Sistema de autenticación de usuarios
-
-Panel de administración
-
-Estadísticas avanzadas
-
-📚 Conclusión
-
-El proyecto MedSystem demuestra cómo construir una aplicación web moderna utilizando React y una arquitectura basada en componentes.
-
-La organización del código permite que el sistema sea fácil de mantener, entender y ampliar en el futuro. Además, sirve como base para desarrollar aplicaciones más complejas dentro del ámbito médico o administrativo.
-
-
-
-guía de instalación paso a paso
-
-estructura explicada con diagramas
-
-sección de contribución.
+*   **Alumno 1**: Ruben Rios Gonzalez – c20340733
+*   **Alumno 2**: Guillermo Angulo Durón - 21340458.
+*   **Concepto proyecto**: Odontología.
+*   **Materia**: Aplicaciones Web.
+*   **Docente**: Abril Leticia Herrera Quintero.
